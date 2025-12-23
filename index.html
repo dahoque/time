@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-clock"></i> My Time Tracker</h1>
+            <div class="date-display" id="currentDate"></div>
+        </header>
+
+        <main>
+            <!-- Current Task Section -->
+            <section class="current-task">
+                <h2>Currently Tracking:</h2>
+                <div class="current-display">
+                    <span id="currentTaskName">No active task</span>
+                    <span id="currentTimer">00:00:00</span>
+                </div>
+                <div class="task-controls">
+                    <button id="startBtn" class="btn btn-start">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                    <button id="stopBtn" class="btn btn-stop" disabled>
+                        <i class="fas fa-stop"></i> Stop
+                    </button>
+                    <button id="resetBtn" class="btn btn-reset">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </section>
+
+            <!-- Task Selection -->
+            <section class="task-selection">
+                <h2>Select Task</h2>
+                <div class="task-buttons" id="taskButtons">
+                    <!-- Tasks will be loaded here -->
+                </div>
+                
+                <!-- Add New Task -->
+                <div class="add-task">
+                    <h3>Add New Task</h3>
+                    <div class="add-task-form">
+                        <input type="text" id="newTaskName" placeholder="Enter task name">
+                        <input type="color" id="newTaskColor" value="#4CAF50">
+                        <button id="addTaskBtn" class="btn btn-add">
+                            <i class="fas fa-plus"></i> Add Task
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="statistics">
+                <h2>Today's Summary</h2>
+                <div class="stats-grid" id="statsGrid">
+                    <!-- Stats will be loaded here -->
+                </div>
+                <div class="total-time">
+                    <h3>Total Tracked Today: <span id="totalTime">00:00:00</span></h3>
+                </div>
+            </section>
+
+            <!-- History -->
+            <section class="history">
+                <h2>Recent Sessions</h2>
+                <div class="history-list" id="historyList">
+                    <!-- History will be loaded here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Time Tracker v1.0 | Made with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
