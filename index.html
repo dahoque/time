@@ -73,6 +73,139 @@
                     <!-- History will be loaded here -->
                 </div>
             </section>
+            <!-- Manual Time Entry Section -->
+            <section class="manual-entry">
+                <h2><i class="fas fa-clock"></i> Manual Time Entry</h2>
+                <div class="manual-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="manualTask"><i class="fas fa-tasks"></i> Task</label>
+                            <select id="manualTask" class="form-select">
+                                <!-- Options will be populated by JS -->
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="manualDate"><i class="fas fa-calendar"></i> Date</label>
+                            <input type="date" id="manualDate" class="form-input">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startTime"><i class="fas fa-play-circle"></i> Start Time</label>
+                            <input type="time" id="startTime" class="form-input" value="09:00">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="endTime"><i class="fas fa-stop-circle"></i> End Time</label>
+                            <input type="time" id="endTime" class="form-input" value="17:00">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="durationHours"><i class="fas fa-hourglass-half"></i> Duration</label>
+                            <div class="duration-inputs">
+                                <input type="number" id="durationHours" min="0" max="24" placeholder="H" class="duration-input">
+                                <span>h</span>
+                                <input type="number" id="durationMinutes" min="0" max="59" placeholder="M" class="duration-input">
+                                <span>m</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="manualNotes"><i class="fas fa-sticky-note"></i> Notes (Optional)</label>
+                        <textarea id="manualNotes" class="form-textarea" placeholder="Add any notes about this time entry..."></textarea>
+                    </div>
+                    
+                    <button id="saveManualEntry" class="btn btn-save">
+                        <i class="fas fa-save"></i> Save Time Entry
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Time Log Viewer Section -->
+            <section class="log-viewer">
+                <h2><i class="fas fa-history"></i> Time Log Viewer</h2>
+                
+                <!-- Filter Controls -->
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="filterDateFrom"><i class="fas fa-calendar-alt"></i> From</label>
+                        <input type="date" id="filterDateFrom" class="filter-input">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filterDateTo"><i class="fas fa-calendar-alt"></i> To</label>
+                        <input type="date" id="filterDateTo" class="filter-input">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filterTask"><i class="fas fa-filter"></i> Task</label>
+                        <select id="filterTask" class="filter-select">
+                            <option value="all">All Tasks</option>
+                            <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+                    
+                    <button id="applyFilter" class="btn btn-filter">
+                        <i class="fas fa-search"></i> Apply Filter
+                    </button>
+                    
+                    <button id="clearFilter" class="btn btn-clear">
+                        <i class="fas fa-redo"></i> Clear
+                    </button>
+                </div>
+                
+                <!-- Export Controls -->
+                <div class="export-controls">
+                    <button id="exportCSV" class="btn btn-export">
+                        <i class="fas fa-file-csv"></i> Export as CSV
+                    </button>
+                    <button id="exportJSON" class="btn btn-export">
+                        <i class="fas fa-file-code"></i> Export as JSON
+                    </button>
+                    <button id="printLog" class="btn btn-print">
+                        <i class="fas fa-print"></i> Print Log
+                    </button>
+                </div>
+                
+                <!-- Log Summary -->
+                <div class="log-summary">
+                    <h3>Summary: <span id="totalEntries">0</span> entries, Total: <span id="totalFilteredTime">0h 0m</span></h3>
+                </div>
+                
+                <!-- Log Table -->
+                <div class="log-table-container">
+                    <table class="log-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Task</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Duration</th>
+                                <th>Notes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logTableBody">
+                            <!-- Log entries will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button id="prevPage" class="btn-pagination">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span id="pageInfo">Page 1 of 1</span>
+                    <button id="nextPage" class="btn-pagination">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
         </main>
 
         <footer>
